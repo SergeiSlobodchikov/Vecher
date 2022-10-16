@@ -1,60 +1,69 @@
-﻿// int[] a = {12, 242, 512, 53, 52, 632, 254, 242, 234};
-// int n = a.Length;
-// int find = 234;
+﻿string line = Console.ReadLine(); // ввод числа в десятеричной системе 
+int x0 = (int.Parse(line));
+int x = Math.Abs(x0);
+int x1 = 0;
+int x2 = 0;
+int x3 = x;
+// Stack<string> massiv = new Stack<string>();
+List<string> massiv = new List<string>();
 
-// int index= 0;
-// while(index < n)
-// {
-//     if(a[index] == find)
-//     {
-//         Console.WriteLine(index);
-//     }
-//     index++;
-// }
-void r(int[] col)
+while (x >= 10)
 {
-    int length = col.Length;
-    int index = 0;
-    while (index < length)
+    x1 = x / 16;
+    x2 = x % 16;
+    if (x2 == 10)
     {
-        col[index] = new Random().Next(1, 10);
-        index++;
+        massiv.Add("A");
+    //     massiv.Push("A");
     }
+    else if (x2 == 11)
+    {
+        massiv.Add("B");
+
+        // massiv.Push("B");
+    }
+    else if (x2 == 12)
+    {
+        massiv.Add("C");
+        // massiv.Push("C");
+    }
+    else if (x2 == 13)
+    {
+        massiv.Add("D");
+        // massiv.Push("D");
+    }
+    else if (x2 == 14)
+    {
+        massiv.Add("E");
+        // massiv.Push("E");
+    }
+    else if (x2 == 15)
+    {
+        massiv.Add("F");
+        // massiv.Push("F");
+    }
+
+    else
+    {
+        massiv.Add(Convert.ToString(x2));
+        // massiv.Push(Convert.ToString(x2));
+    }
+    x = x / 16;
 }
-void p(int[] col2)
+if(x0<0)Console.Write("-");
+while(x3<=9 && 0<=x3 && x0>=0)
 {
-    int count = col2.Length;
-    int position = 0;
-    while (position < count)
-    {
-        Console.WriteLine(col2[position]);
-        position++;
-    }
-
-
+    Console.Write(x3); 
+    break;
 }
-
-int I(int[] col, int find)
+if(x1>0)Console.Write(x1);
+if(x3>=10)
+{  
+massiv.Reverse();
+foreach (var person in massiv)
 {
-    int count = col.Length;
-    int index = 0;
-    int position = -1;
-    while (index < count)
-    {
-     if (col[index] == find)
-     {
-        position = index;
-        break;
-     }
-     index++;   
-    }
-    return position;
+    Console.Write(person);
+}
+// foreach (var person in massiv) Console.Write(person);
 }
 
-int[] m = new int[15];
-r(m);
-p(m);
-Console.WriteLine();
-
-int pos = I(m, 4);
-Console.WriteLine(pos);
